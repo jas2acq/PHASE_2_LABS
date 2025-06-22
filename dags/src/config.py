@@ -22,7 +22,7 @@ def get_ssm_parameter(parameter_name):
         ValueError: If the parameter is not found or has an invalid S3 path format.
         ClientError: If an AWS client-related error occurs during retrieval.
     """
-    ssm_client = boto3.client('ssm')  # Fixed: Renamed from s3_client to ssm_client
+    ssm_client = boto3.client('ssm')  
     try:
         response = ssm_client.get_parameter(Name=parameter_name, WithDecryption=True)
         value = response['Parameter']['Value']
